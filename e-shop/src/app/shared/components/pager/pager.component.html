@@ -1,0 +1,11 @@
+<mat-paginator
+  class="bg-white"
+  (page)="onPagerChange($event)"
+  [length]="totalCount"
+  [pageSize]="pageSize"
+  [showFirstLastButtons]="true"
+  [pageSizeOptions]="pageSizeOptions"
+  [pageIndex]="pageNumber - 1"
+  aria-label="Select page"
+>
+</mat-paginator>

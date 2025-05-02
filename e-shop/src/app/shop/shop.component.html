@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <section class="col-3">
+      <h5 class="text-warning ms-3">Sort</h5>
+      <mat-form-field>
+        <mat-select
+          [(value)]="shopParams.sort"
+          [multiple]="false"
+          (selectionChange)="onSortChange($event)"
+        >
+          @for (sort of sortOptions; track $index) {
+          <mat-option [value]="sort.value" >
+            {{ sort.name }}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <!--             [selected]="shopParams.sort === sort.value" -->
+      <h5 class="text-warning ms-3">Brands</h5>
+      <ul class="list-group my-3">
+        <li
+          class="list-group-item"
+          *ngFor="let brand of brands"
+          [class.active]="brand.id === this.shopParams.brandId"
+          [value]="brand.id"
+          (click)="onBrandSelected(brand.id)"
+        >
+          {{ brand.name }}
+        </li>
+      </ul>
+
+      <h5 class="text-warning ms-3">Types</h5>
+      <ul class="list-group my-3">
+        <li
+          class="list-group-item"
+          *ngFor="let type of types"
+          [class.active]="type.id === this.shopParams.typeId"
+          [value]="type.id"
+          (click)="onTypeSelected(type.id)"
+        >
+          {{ type.name }}
+        </li>
+      </ul>
+    </section>
+
+    <section class="col-9">
+      <div class="d-flex justify-content-between pb-2">
+        <div class="d-flex align-items-center mt-2">
+          <input
+            #search
+            class="form-control d-inline me-2"
+            style="width: 300px"
+            placeholder="Search"
+            type="text"
+            (keyup.enter)="onSearch()"
+          />
+          <button (click)="onSearch()" class="btn btn-outline-primary my-2">
+            Search
+          </button>
+          <button (click)="onReset()" class="btn btn-outline-success my-2 ms-2">
+            Reset
+          </button>
+        </div>
+
+        <div>
+          <app-pager
+            [totalCount]="totalCount"
+            [pageNumber]="shopParams.pageNumber"
+            [pageSize]="shopParams.pageSize"
+            (pageChanged)="handlePageEvent($event)"
+          ></app-pager>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 mb-4" *ngFor="let product of products?.data">
+          <app-product-item [product]="product"></app-product-item>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
