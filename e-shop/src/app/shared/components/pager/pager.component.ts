@@ -13,7 +13,7 @@ export class PagerComponent implements OnInit {
   @Input() pageSize: number;
   @Output() pageChanged = new EventEmitter<PageEvent>();
 
-  pageSizeOptions = [5, 10, 15, 20];
+  pageSizeOptions = [6, 12, 18, 24];
 
   constructor() {}
 
