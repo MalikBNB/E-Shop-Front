@@ -8,12 +8,13 @@ import {
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { provideHotToastConfig } from '@ngxpert/hot-toast';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withInterceptors([errorInterceptor])), provideHotToastConfig(),
+    provideHttpClient(withInterceptors([errorInterceptor, LoadingInterceptor])), provideHotToastConfig(),
   ],
 };

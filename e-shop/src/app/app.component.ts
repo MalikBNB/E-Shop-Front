@@ -3,16 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { CoreModule } from './core/core.module';
 import { ShopComponent } from './shop/shop.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    CoreModule,
-    NgFor,
-    ShopComponent,
-  ],
+  imports: [RouterOutlet, CoreModule, NgFor, ShopComponent, NgxSpinnerModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

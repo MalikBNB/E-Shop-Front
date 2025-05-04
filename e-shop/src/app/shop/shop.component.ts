@@ -34,7 +34,7 @@ import { PagerComponent } from '../shared/components/pager/pager.component';
   styleUrl: './shop.component.scss',
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', { static: true }) searchTearm: ElementRef;
+  @ViewChild('search', { static: false }) searchTearm: ElementRef;
 
   products?: Pagination<Product>;
   brands: IBrand[];

@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <section class="col-3">
+      @if (types && brands) {
       <h5 class="text-warning ms-3">Sort</h5>
       <mat-form-field>
         <mat-select
@@ -9,13 +10,12 @@
           (selectionChange)="onSortChange($event)"
         >
           @for (sort of sortOptions; track $index) {
-          <mat-option [value]="sort.value" >
+          <mat-option [value]="sort.value">
             {{ sort.name }}
           </mat-option>
           }
         </mat-select>
       </mat-form-field>
-      <!--             [selected]="shopParams.sort === sort.value" -->
       <h5 class="text-warning ms-3">Brands</h5>
       <ul class="list-group my-3">
         <li
@@ -41,9 +41,11 @@
           {{ type.name }}
         </li>
       </ul>
+      }
     </section>
 
     <section class="col-9">
+      @if(products) {
       <div class="d-flex justify-content-between pb-2">
         <div class="d-flex align-items-center mt-2">
           <input
@@ -71,6 +73,7 @@
           ></app-pager>
         </div>
       </div>
+      }
 
       <div class="row">
         <div class="col-4 mb-4" *ngFor="let product of products?.data">
