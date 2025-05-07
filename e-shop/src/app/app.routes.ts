@@ -7,11 +7,21 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 
 export const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'test-error', component: TestErrorComponent},
-  {path: 'not-found', component: NotFoundComponent},
-  {path: 'server-error', component: ServerErrorComponent},
-  {path: 'shop', component: ShopComponent},
-  {path: 'shop/:id', component: ProductDetailsComponent},
-  {path: '**', redirectTo: '', pathMatch: 'full'},
+  { path: '', component: HomeComponent },
+  { path: 'test-error', component: TestErrorComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'server-error', component: ServerErrorComponent },
+  { path: 'shop', component: ShopComponent },
+  { path: 'shop/:id', component: ProductDetailsComponent },
+  {
+    path: 'basket',
+    loadChildren: () =>
+      import('./basket/basket.module').then((mod) => mod.BasketModule),
+  },
+  {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./checkout/checkout.module').then((mod) => mod.CheckoutModule),
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
