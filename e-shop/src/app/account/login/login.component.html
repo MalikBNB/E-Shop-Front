@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="col-3">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="text-center mb-6">
+        <h1 class="text-3xl font-semibold text-primary">Login</h1>
+      </div>
+      <mat-form-field appearance="outline" class="w-100 mb-4">
+        <mat-label>Email address</mat-label>
+        <input
+          formControlName="email"
+          type="email"
+          placeholder="name@example.com"
+          matInput
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-100 mb-4">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          matInput
+        />
+      </mat-form-field>
+      <button
+        mat-flat-button
+        type="submit"
+        class="w-100 py-2"
+        [disabled]="loginForm.invalid"
+      >
+        Sign in
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="d-flex justify-content-center mt-5">
+  <div class="col-3">
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
+
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          formControlName="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Email Address"
+        />
+        <label for="inputEmail">Email Address</label>
+        <span
+          class="text-danger"
+          *ngIf="
+            loginForm.get('email')?.invalid &&
+            loginForm.get('email')?.touched &&
+            loginForm.hasError('required', 'email')
+          "
+          >Email is invalid</span
+        >
+      </div>
+
+      <div class="form-label-group form-floating">
+        <input
+          type="password"
+          formControlName="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Password"
+        />
+        <label for="inputPassword">Password</label>
+      </div>
+
+      <button
+        class="btn btn-primary w-100 py-2"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Sign in
+      </button>
+    </form>
+  </div>
+
+  <div class="col-4">
+    <p>Form Status: {{ loginForm.status }}</p>
+    <p>Email Status: {{ loginForm.get("email")?.status }}</p>
+    <p>Email Touched: {{ loginForm.get("email")?.touched }}</p>
+    <p>Email Dirty: {{ loginForm.get("email")?.dirty }}</p>
+    <pre>{{ loginForm.value | json }}</pre>
+  </div>
+</div>
+
+<div class="form-floating mb-3">
+        <input
+        formControlName="email"
+          type="email"
+          id="emailAddress"
+          class="form-control"
+          placeholder="Email Address"
+        />
+        <label for="emailAddress">Email</label>
+        <div
+          class="invalid-feedback"
+          *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+        >
+          <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+          <span *ngIf="loginForm.get('email')?.errors?.['pattern']"
+            >Invalid email address</span
+          >
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Password"
+        />
+        <label for="password">Password</label>
+        <div
+          class="invalid-feedback"
+          *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        >
+          <span *ngIf="loginForm.get('password')?.errors?.['required']"
+            >Password is required</span
+          >
+        </div>
+      </div>
+-->

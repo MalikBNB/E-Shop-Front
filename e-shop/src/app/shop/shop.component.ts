@@ -8,12 +8,6 @@ import { IBrand } from '../shared/models/brand';
 import { IType } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
 import { Pagination } from '../shared/models/pagination';
-import { MatMenu } from '@angular/material/menu';
-import {
-  MatListOption,
-  MatSelectionList,
-  MatSelectionListChange,
-} from '@angular/material/list';
 import { MatSelectModule, MatSelectChange } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PagerComponent } from '../shared/components/pager/pager.component';
@@ -24,10 +18,7 @@ import { PagerComponent } from '../shared/components/pager/pager.component';
     NgFor,
     ProductItemComponent,
     MatFormFieldModule,
-    // MatListOption,
-    // MatSelectionList,
     PagerComponent,
-
     MatSelectModule,
   ],
   templateUrl: './shop.component.html',
